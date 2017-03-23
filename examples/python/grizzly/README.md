@@ -31,6 +31,16 @@ $ mv us_cities_states_counties.csv data/us_cities_states_counties_raw.csv
 $ scripts/transform-population-csv -i data/us_cities_states_counties_raw.csv -o data/us_cities_states_counties.csv -r 30
 ```
 
+To get data for `movielens`, run:
+
+```bash
+$ cd $WELD_HOME/examples/python/grizzly
+$ mkdir -p data
+$ wget http://files.grouplens.org/datasets/movielens/ml-1m.zip
+$ unzip ml-1m.zip; rm ml-1m.zip
+$ mv ml-1m data/
+```
+
 ### Running the Demo Workloads
 
 The demo workloads are in `$WELD_HOME/examples/python/grizzly`.
