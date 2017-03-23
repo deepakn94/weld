@@ -41,6 +41,16 @@ $ unzip ml-1m.zip; rm ml-1m.zip
 $ mv ml-1m data/
 ```
 
+To get data for `url_shortening`, run:
+
+```bash
+$ cd $WELD_HOME/examples/python/grizzly
+$ mkdir -p data
+$ wget http://1usagov.measuredvoice.com/bitly_archive/usagov_bitly_data2013-05-17-1368810603.gz
+$ gzip -d usagov_bitly_data2013-05-17-1368810603.gz
+$ mv usagov_bitly_data2013-05-17-1368810603 data/usagov_bitly_data2013-05-17-1368810603.txt
+```
+
 ### Running the Demo Workloads
 
 The demo workloads are in `$WELD_HOME/examples/python/grizzly`.
