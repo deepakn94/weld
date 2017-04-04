@@ -19,8 +19,10 @@ movies = pd.read_table('data/ml-1m/movies.dat', sep='::', header=None,
 
 start = time.time()
 data = pd.merge(pd.merge(ratings, users), movies)
+print "Time to merge:", (time.time() - start)
 mean_ratings = data.pivot_table('rating', index='title', columns='gender',
                                 aggfunc='mean')
+print "Time to merge and create pivot table:", time.time() - start
 
 ratings_by_title = data.groupby('title').size()
 active_titles = ratings_by_title.index[ratings_by_title >= 250]

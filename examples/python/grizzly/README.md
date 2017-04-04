@@ -51,6 +51,8 @@ $ gzip -d usagov_bitly_data2013-05-17-1368810603.gz
 $ mv usagov_bitly_data2013-05-17-1368810603 data/usagov_bitly_data2013-05-17-1368810603.txt
 ```
 
+To get data for `birth_analysis`, look at [Wes' pydata-book](https://github.com/wesm/pydata-book/tree/master/ch02/names).
+
 ### Running the Demo Workloads
 
 The demo workloads are in `$WELD_HOME/examples/python/grizzly`.
