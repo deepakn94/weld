@@ -156,8 +156,9 @@ class WeldObject(object):
                     self.context[name]).cTypeClass)
                 encoded.append(self.encoder.encode(self.context[name]))
         end = time.time()
+        encoding_time = end - start
         if verbose:
-            print "Total time encoding:", end - start
+            print "Total time encoding:", encoding_time
 
         start = time.time()
         Args = args_factory(zip(names, argtypes))
@@ -187,8 +188,9 @@ class WeldObject(object):
         ptrtype = POINTER(restype.cTypeClass)
         data = ctypes.cast(weld_ret.data(), ptrtype)
         end = time.time()
+        running_time = end - start
         if verbose:
-            print "Total time running:", end - start
+            print "Total time running:", running_time
 
         start = time.time()
         if decode:
@@ -198,7 +200,9 @@ class WeldObject(object):
             result = ctypes.cast(data, ctypes.POINTER(
                 ctypes.c_int64)).contents.value
         end = time.time()
+        decoding_time = end - start
         if verbose:
-            print "Total time decoding:", end - start
+            print "Total time decoding:", decoding_time
+        print "Grizzly: %.4f" % (encoding_time + running_time + decoding_time),
 
         return result
