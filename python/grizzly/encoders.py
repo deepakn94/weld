@@ -123,7 +123,6 @@ class NumPyEncoder(WeldObjectEncoder):
         numpy_to_weld.restype = self.pyToWeldType(obj).cTypeClass
         numpy_to_weld.argtypes = [py_object, WeldInt().cTypeClass]
         num_threads = os.environ.get("WELD_NUM_THREADS", 1)
-        print num_threads
         weld_vec = numpy_to_weld(obj, int(num_threads))
         return weld_vec
 
